@@ -5,8 +5,6 @@ String.prototype.replaceAt=function(index, character) {
     //uso: palabraGuiones = palabraGuiones.replaceAt(i*2, letra);
 } 
 
-
-
 //Palabras que estaran en el juego
 const palabras = ['hoja', 'casa', 'lago', 'caballo', 'corral'];
 
@@ -24,13 +22,22 @@ document.querySelector('#evaluar').addEventListener('click', () => {
 
     const letra = document.querySelector('#letra').value;
 
+    let fallo = true;
+    let contadorFallos = 0;
+
     for(const i in palabra){
 
         if(letra == palabra[i]){
 
             palabraGuiones = palabraGuiones.replaceAt(i*2, letra);
-           
+            fallo = false;
         }
+    }
+
+    if(fallo){
+
+        contadorFallos++;
+        document.querySelector('#ahorcado').style.backgroundPosition = -(201 * contadorFallos) + 'px 0';
     }
 
     document.querySelector('#salida').innerHTML = palabraGuiones;
