@@ -1,3 +1,10 @@
+String.prototype.replaceAt=function(index, character) { 
+
+    return this.substr(0, index) + character + this.substr(index+character.length); 
+} 
+
+
+
 //Palabras que estaran en el juego
 const palabras = ['hoja', 'casa', 'lago', 'caballo', 'corral'];
 
@@ -11,5 +18,6 @@ const palabraGuiones = palabra.replace(/./g, "_ ");
 //funcion anonima para calcular palabra aleatoria
 document.querySelector('#evaluar').addEventListener('click', () => {
 
-    
+    const letra = document.querySelector('#letra').value;
+    alert(letra);
 });
